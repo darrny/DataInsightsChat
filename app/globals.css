@@ -3,19 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f5f5; /* Soft light background */
+  --foreground: #333333; /* Darker text */
+  --primary: #4e7ff1; /* Soft blue for accents */
+  --secondary: #e5e7eb; /* Light grey for elements */
+  --input-bg: #ffffff; /* White background for inputs */
+  --button-bg: #4e7ff1; /* Primary button color */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body.dark-mode {
+  --background: #121212; /* Dark background */
+  --foreground: #e0e0e0; /* Lighter text */
+  --primary: #7ec8ff; /* Softer blue for dark mode */
+  --secondary: #333333; /* Dark grey for dark mode elements */
+  --input-bg: #333333; /* Dark background for inputs */
+  --button-bg: #7ec8ff; /* Primary button color */
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+input, button {
+  transition: all 0.3s ease;
+}
+
+input:focus, button:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--primary);
 }
